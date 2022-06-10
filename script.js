@@ -16,11 +16,16 @@ function updateScrollbar() {
   });
 }
 
-function setDate(){
+function setDate() {
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   d = new Date()
+  var monthString = months[d.getMonth()];
+  var yearString = d.getFullYear();
+  var dayString = d.getDate();
+  var fullString = monthString + ' ' + dayString + ', ' + yearString;
   if (m != d.getMinutes()) {
     m = d.getMinutes();
-    $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+    $('<div class="timestamp">' + fullString +' '+ d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
   }
 }
 
